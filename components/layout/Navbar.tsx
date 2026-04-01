@@ -57,13 +57,13 @@ export default function Navbar() {
                     <div className="flex items-center gap-5 xl:gap-8 h-full">
                         {links.map(({ label, badge, hasArrow, submenu }) => (
                             <div key={label} className="group h-full relative flex items-center">
-                                <a
-                                    href="#"
-                                    className={`whitespace-nowrap text-[#2d3748] group-hover:text-[#2cb7ff] transition-colors text-[14px] flex items-center gap-1 h-full border-b-2 border-transparent group-hover:border-[#2cb7ff] pb-1 pt-2
+
+                                <a href="#"
+                                    className={`whitespace-nowrap text-[#2d3748] group-hover:text-[#2cb7ff] transition-colors text-[14px] flex items-center gap-1 h-full border-b-2 border-transparent group-hover:border-[#2cb7ff] pt-2
                                         ${label === 'Congreso' || label === 'Cursos' ? 'font-bold' : 'font-medium'}`} 
                                 >
                                     {badge && (
-                                        <span className={`absolute top-1 left-1/2 -translate-x-1/2 text-[9px] px-1.5 py-0.5 rounded-sm font-bold text-white uppercase ${badgeStyles[badge]}`}>
+                                        <span className={`absolute top-1 left-3/4 -translate-x-1/2 text-[9px] px-1.5 py-0.5 rounded-sm font-bold text-white uppercase ${badgeStyles[badge]}`}>
                                             {badge}
                                         </span>
                                     )}
