@@ -13,21 +13,27 @@ export default function Hero() {
     <section>
 
       {showBanner && (
-        <div className="bg-red-600 text-white text-sm py-2.5 px-4 flex items-center justify-center gap-2 relative">
-          <span>
-            Escoge tu programa con hasta <strong>35% OFF</strong> ⚡ Solo en Black Sale
-          </span>
-          <button
-            onClick={() => setShowBanner(false)}
-            className="absolute right-4 hover:opacity-70 transition"
-          >
-            <X size={16} />
-          </button>
+        <div className="bg-[#ff0000] text-white text-sm py-2.5">
+            <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-[40px] flex items-center justify-between">
+            {/* Spacer izquierdo para centrar el texto */}
+            <div className="w-4" />
+            
+            <span className="text-center text-white">
+                Escoge tu programa con hasta <strong>35% OFF</strong> ⚡ Solo en Black Sale
+            </span>
+
+            <button
+                onClick={() => setShowBanner(false)}
+                className="hover:opacity-70 transition flex-shrink-0 hover:cursor-pointer"
+            >
+                <X size={18} />
+            </button>
+            </div>
         </div>
-      )}
+        )}
 
 
-      <div className="bg-[#6b46ff] text-white py-20 px-4">
+      <div className="bg-[#704efd] text-white py-20 px-4">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
           
 
@@ -50,8 +56,8 @@ export default function Hero() {
               placeholder=""
               className="flex-1 bg-transparent text-white placeholder-white/50 outline-none py-2 text-base"
             />
-            <button className="text-white/80 hover:text-white transition">
-              <Search size={25} className="font-bold" />
+            <button className="text-white/80 hover:text-white transition ">
+              <Search size={27} className="font-bold hover:cursor-pointer" />
             </button>
           </div>
 
@@ -62,7 +68,7 @@ export default function Hero() {
               <button
                 key={term}
                 onClick={() => setQuery(term)}
-                className="border border-white/50 text-white px-3 py-1 rounded-full hover:bg-white/20 transition-colors text-sm font-semibold"
+                className="border border-white/50 text-white px-3 py-1 rounded-2xl hover:bg-white/30 transition-colors text-sm font-semibold"
               >
                 {term}
               </button>
