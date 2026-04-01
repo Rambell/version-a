@@ -43,7 +43,7 @@ export default function Hero() {
           </h1>
 
  
-          <p className="text-white/80 text-[15px] md:text-lg max-w-xl">
+          <p className="text-white/80 text-[15px]  max-w-xl">
             Accede a descuentos especiales de Black Sale y eleva tu carrera profesional.
           </p>
 
