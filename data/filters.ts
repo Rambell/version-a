@@ -22,7 +22,7 @@ export const tipoPrograma = [
 ];
 
 export const modalidad = [
-    'En vivo', 'Asincrónica', 'Presencial', 'Mixta',
+    'En Vivo', 'Asincrónica', 'Presencial', 'Mixta',
 ];
 
 export const categoria = [

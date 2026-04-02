@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import Footer from "@/components/layout/Footer";
 import type { Metadata } from 'next';
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 
 export const metadata: Metadata = {
@@ -42,11 +43,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={poppins.variable}>
+    <html lang="es" className={poppins.variable} suppressHydrationWarning>
       <body suppressHydrationWarning={true}>
+        <ThemeProvider>
         <Header />
         {children}
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

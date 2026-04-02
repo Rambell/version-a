@@ -1,3 +1,4 @@
+import DarkMode from "../ui/DarkMode";
 
 const links = [
     { label: 'Descubre ADIPA', 
@@ -144,6 +145,22 @@ export default function Navbar({ mobileOpen, setMobileOpen }: NavbarProps) {
                     <a href="#" className="mt-3 w-fit mx-auto flex items-center justify-center bg-[var(--color-accent)] text-white py-3 px-6 rounded-xl font-semibold text-[14px]">
                         Black Sale Oficial
                     </a>
+
+                    <div className="border-t border-[var(--color-border)] mt-3 pt-3 flex flex-col gap-2">
+                        <button className=" w-full  mt-3 mx-auto flex items-center justify-center py-2.5 text-[14px] font-bold text-white hover:text-[var(--color-accent)] transition text-left px-2  bg-[var(--color-accent)] rounded-xl">
+                            Iniciar Sesión
+                        </button>
+                        <button className="w-full  mt-3 mx-auto flex items-center justify-center py-2.5 text-[14px] text-[var(--color-text)] hover:text-[var(--color-accent)] transition text-left px-2 border-2 rounded-xl">
+                            Regístrate
+                        </button>
+                    </div>
+
+                    <div className="border-t border-[var(--color-border)] mt-3 pt-4 flex items-center justify-between px-2">
+                        <span className="text-[14px] font-medium text-[var(--color-text)]">
+                            Modo oscuro
+                        </span>
+                        <DarkMode />
+                    </div>
                 </div>
             )}
  

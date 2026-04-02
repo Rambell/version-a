@@ -32,6 +32,8 @@
    --color-bg-hover: #0096db; 
 }
 
+
+
 @theme {
   --font-poppins: var(--font-poppins);
 }
