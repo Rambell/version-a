@@ -20,7 +20,7 @@ Landing page de catálogo de cursos ADIPA construida con Next.js 14+, Tailwind C
 - Versión B (Laravel): https://github.com/Rambell/version-b.git
 
 ## Deploy
-
+https://version-a-one.vercel.app/
 
 
 ## Tecnologías
