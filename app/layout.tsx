@@ -1,6 +1,7 @@
 import Header from "../components/layout/Header"
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import Footer from "@/components/layout/Footer";
 
 
 const poppins = Poppins({
@@ -15,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={poppins.variable}>
-      <body>
+      <body suppressHydrationWarning={true}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

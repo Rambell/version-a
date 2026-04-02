@@ -35,10 +35,9 @@ const links = [
 ];
 
 
-
     const badgeStyles: Record<string, string> = {
-    GRATIS: 'bg-[#6b46ff]', // Morado Adipa
-    NUEVO: 'bg-[#ff006e]',  // Rosado/Fucsia Adipa
+        GRATIS: 'bg-[#6b46ff]', 
+        NUEVO: 'bg-[#ff006e]',  
     };
 
 export default function Navbar() {
@@ -47,13 +46,12 @@ export default function Navbar() {
             <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 md:px-8 xl:px-[40px] h-14">
                 
                 <div className="flex items-center h-full">
-                    {/* WhatsApp */}
                     <div className="flex items-center gap-3 mr-6 h-full pt-1">
                         <img src="https://storage.googleapis.com/statics-files-adipa-cl/dist_compress/dist/img/icons/icons-whatsapp.svg" className="w-[18px]" alt="" />
                         <span className="text-gray-300 font-light">|</span>
                     </div>
                         
-                    {/* Navegación */}
+              
                     <div className="flex items-center gap-5 xl:gap-8 h-full">
                         {links.map(({ label, badge, hasArrow, submenu }) => (
                             <div key={label} className="group h-full relative flex items-center">
@@ -94,9 +92,9 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Botón Black Sale con margen izquierdo */}
+            
                 <a href="#" className="flex items-center bg-[#00b0ff] hover:bg-[#0096db] text-white transition-all shadow-md overflow-hidden
-                                      rounded-tl-md rounded-tr-md rounded-bl-md rounded-br-[20px] px-4 py-2 h-[45px] ml-10 flex-shrink-0"
+                    rounded-tl-md rounded-tr-md rounded-bl-md rounded-br-[20px] px-4 py-2 h-[45px] ml-10 flex-shrink-0"
                 >
                     <div className="pr-3 flex items-center justify-center">
                         <img 
