@@ -19,6 +19,10 @@ Landing page de catálogo de cursos ADIPA construida con Next.js 14+, Tailwind C
 - Versión A (Next.js): https://github.com/Rambell/version-a.git
 - Versión B (Laravel): https://github.com/Rambell/version-b.git
 
+## Deploy
+
+
+
 ## Tecnologías
 - Next.js 14+ (App Router)
 - Tailwind CSS 4
@@ -52,8 +56,28 @@ npm run start
 ```
 
 
-## Deploy
+## Tests
+Para correr los tests:
 
+\```bash
+npm test
+\```
+
+
+### Tests unitarios con JEST
+
+- **validateForm** — verifica la validación del formulario de contacto
+- **filterCourses** — verifica el filtrado de cursos por categoría y modalidad
+
+
+PASS  __test__/filterCourses.test.ts
+PASS  __test__/validateForm.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        2.218 s, estimated 12 s
+Ran all test suites.
 
 
 # Notas técnicas
