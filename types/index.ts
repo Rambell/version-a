@@ -8,6 +8,14 @@ export type Categoria =
   | 'Psicología Organizacional y del Trabajo'
   | 'Neurociencias';
 
+export type TipoPrograma =
+  | 'Curso'
+  | 'Acreditación'
+  | 'Especialización'
+  | 'Sesiones Magistrales'
+  | 'Diplomados'
+  | 'Postítulos';
+
 export interface Course {
   id: number;
   title: string;
@@ -17,6 +25,11 @@ export interface Course {
   discountPrice: number;
   modalidad: Modalidad;
   categoria: Categoria;
+  tipo: TipoPrograma;
   image: string;
   status?: 'En progreso' | 'Próximamente' | 'Nuevo';
+  tags?: string[];
+  horas: number;
+  rating: number;
+  popularity: number;
 }

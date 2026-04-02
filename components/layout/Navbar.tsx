@@ -1,4 +1,4 @@
-'use client';
+import DarkMode from "../ui/DarkMode";
 
 const links = [
     { label: 'Descubre ADIPA', 
@@ -40,24 +40,31 @@ const links = [
         NUEVO: 'bg-[#ff006e]',  
     };
 
-export default function Navbar() {
+    interface NavbarProps {
+        mobileOpen: boolean;
+        setMobileOpen: (open: boolean) => void;
+    }
+
+export default function Navbar({ mobileOpen, setMobileOpen }: NavbarProps) {
+
+
     return (
-        <nav className="w-full bg-white border-b border-gray-100 relative">
+        <nav className="w-full bg-[var(--color-bg)] border-b border-[var(--color-border)] relative" aria-label="Navegación principal">
             <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 md:px-8 xl:px-[40px] h-14">
                 
                 <div className="flex items-center h-full">
-                    <div className="flex items-center gap-3 mr-6 h-full pt-1">
+                    <div className="hidden xl:flex items-center gap-3 mr-6 h-full pt-1">
                         <img src="https://storage.googleapis.com/statics-files-adipa-cl/dist_compress/dist/img/icons/icons-whatsapp.svg" className="w-[18px]" alt="" />
                         <span className="text-gray-300 font-light">|</span>
                     </div>
                         
               
-                    <div className="flex items-center gap-5 xl:gap-8 h-full">
+                    <div className="hidden xl:flex items-center gap-5 xl:gap-8 h-full">
                         {links.map(({ label, badge, hasArrow, submenu }) => (
                             <div key={label} className="group h-full relative flex items-center">
 
-                                <a href="#"
-                                    className={`whitespace-nowrap text-[#2d3748] group-hover:text-[#2cb7ff] transition-colors text-[14px] flex items-center gap-1 h-full border-b-2 border-transparent group-hover:border-[#2cb7ff] pt-2
+                                <a
+                                    className={`whitespace-nowrap text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors text-[14px] flex items-center gap-1 h-full border-b-2 border-transparent group-hover:text-[var(--color-accent)] pt-2 cursor-pointer
                                         ${label === 'Congreso' || label === 'Cursos' ? 'font-bold' : 'font-medium'}`} 
                                 >
                                     {badge && (
@@ -73,11 +80,11 @@ export default function Navbar() {
                                     <div className="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 z-50
                                         invisible opacity-0 scale-y-95 origin-top
                                         group-hover:visible group-hover:opacity-100 group-hover:scale-y-100
-                                        transition-all duration-400 ease-out">
+                                        transition-all duration-200 ease-out">
                                         <ul className="py-2">
                                             {submenu.map((item) => (
                                                 <li key={item.label} className="group/sub relative">
-                                                    <a href="#" className="flex items-center justify-between px-6 py-3 text-[14px] text-[#5b6987] hover:bg-gray-100 hover:text-[#704efd] transition-colors font-medium">
+                                                    <a className="flex items-center justify-between px-6 py-3 text-[14px] text-[#5b6987] hover:bg-gray-100 hover:text-[var(--color-primary)] transition-colors font-medium cursor-pointer">
                                                         {item.label}
                                                         {item.items && <svg className="w-3 h-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7-7" /></svg>}
                                                     </a>
@@ -92,8 +99,7 @@ export default function Navbar() {
                     </div>
                 </div>
 
-            
-                <a href="#" className="flex items-center bg-[#00b0ff] hover:bg-[#0096db] text-white transition-all shadow-md overflow-hidden
+                <a href="#" className="hidden lg:flex items-center bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white transition-all shadow-md overflow-hidden
                     rounded-tl-md rounded-tr-md rounded-bl-md rounded-br-[20px] px-4 py-2 h-[45px] ml-10 flex-shrink-0"
                 >
                     <div className="pr-3 flex items-center justify-center">
@@ -109,8 +115,55 @@ export default function Navbar() {
                             Black Sale Oficial
                         </span>
                     </div>
+                    
                 </a>
+                    
             </div>
+
+            {mobileOpen && (
+                <div
+                    id="mobile-nav"
+                    className="xl:hidden bg-[var(--color-bg)] border-t border-[var(--color-border)] px-4 py-4 flex flex-col gap-1 shadow-lg"
+                >
+                    {links.map(({ label, badge }) => (
+                    <a 
+                        key={label}
+                        href="#"
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center justify-between py-3 px-2 text-[14px] font-medium text-[var(--color-text)] hover:text-[var(--color-accent)] border-b border-[var(--color-border)] transition-colors"
+                    >
+                        <span className="flex items-center gap-2">
+                            {label}
+                            {badge && (
+                                <span className={`text-[9px] px-1.5 py-0.5 rounded-sm font-bold text-white uppercase ${badgeStyles[badge]}`}>
+                                    {badge}
+                                </span>
+                            )}
+                        </span>
+                    </a>
+                ))}
+                    <a href="#" className="mt-3 w-fit mx-auto flex items-center justify-center bg-[var(--color-accent)] text-white py-3 px-6 rounded-xl font-semibold text-[14px]">
+                        Black Sale Oficial
+                    </a>
+
+                    <div className="border-t border-[var(--color-border)] mt-3 pt-3 flex flex-col gap-2">
+                        <button className=" w-full  mt-3 mx-auto flex items-center justify-center py-2.5 text-[14px] font-bold text-white hover:text-[var(--color-accent)] transition text-left px-2  bg-[var(--color-accent)] rounded-xl">
+                            Iniciar Sesión
+                        </button>
+                        <button className="w-full  mt-3 mx-auto flex items-center justify-center py-2.5 text-[14px] text-[var(--color-text)] hover:text-[var(--color-accent)] transition text-left px-2 border-2 rounded-xl">
+                            Regístrate
+                        </button>
+                    </div>
+
+                    <div className="border-t border-[var(--color-border)] mt-3 pt-4 flex items-center justify-between px-2">
+                        <span className="text-[14px] font-medium text-[var(--color-text)]">
+                            Modo oscuro
+                        </span>
+                        <DarkMode />
+                    </div>
+                </div>
+            )}
+ 
         </nav>
     );
 }
