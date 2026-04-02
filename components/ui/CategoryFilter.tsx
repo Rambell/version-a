@@ -4,37 +4,12 @@ import { ChevronUp, ChevronDown, Zap, AlarmClock } from 'lucide-react';
 import * as Slider from '@radix-ui/react-slider';
 import { useState } from 'react';
 
-const quickLinks = [
-    { label: 'Top 10 semanal', emoji: null },
-    { label: 'Más Populares', emoji: null },
-    { label: 'Mejores Valorados', emoji: null },
-    { label: 'Nuevos Lanzamientos', emoji: null },
-    { label: 'Ofertas Flash', emoji: <Zap className="text-amber-400" /> },
-    { label: 'Pre Lanzamiento', emoji: <AlarmClock className="text-red-400" /> },
-];
+import { quickLinks, areasTematicas, tipoPrograma, modalidad, categoria } from '@/data/filters';
 
-const areasTematicas = [
-    'Psicología Clínica y Salud Mental Infantil y Adolescente',
-    'Psicología Clínica y Salud Mental en la Adultez',
-    'Educación y Neurodesarrollo',
-    'Psicología Jurídica y Forense',
-    'Psicología Organizacional y del Trabajo',
-    'Neurociencias',
-];
-
-const tipoPrograma = [
-    'Curso', 'Acreditación', 'Especialización',
-    'Sesiones Magistrales', 'Diplomados', 'Postítulos',
-];
-
-const modalidad = [
-    'En vivo', 'Asincrónica', 'Presencial', 'Mixta',
-];
-
-const categoria = [
-    'Autismo', 'Primeros auxilios psicológicos', 'Psicología Clínica',
-    'Psicología Educacional', 'Psicología Jurídica', 'Test Psicológicos',
-];
+const emojiMap: Record<string, React.ReactNode> = {
+    zap: <Zap className="text-amber-400" />,
+    clock: <AlarmClock className="text-red-400" />,
+};
 
 interface CourseSidebarProps {
     selectedCategories: string[];
@@ -100,7 +75,7 @@ export default function CategoryFilter({
                 {quickLinks.map(({ label, emoji }) => (
                 <li key={label}>
                     <a href="#" className="text-[14px] text-[#2d3748] hover:text-[#6b46ff] transition-colors font-medium flex items-center gap-1">
-                        {label} {emoji && <span>{emoji}</span>}
+                        {label} {emoji && <span>{emojiMap[emoji]}</span>}
                     </a>
                 </li>
                 ))}
