@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
-
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colores principales */
+  --color-primary: #947eeb;
+  --color-primary-dark: #5a35ee;
+  --color-accent: #2cb7ff;
+  --color-accent-dark: #0096db;
+
+  /* Texto */
+  --color-text: #2d3748;
+  --color-text-light: #5b6987;
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f8f7ff;
+  --color-border: #e2e8f0;
+
+  --color-bg-hover:#1fa0e6;
+}
+
+
+.dark {
+  --color-primary: #7c5cff;
+  --color-accent: #2cb7ff;
+  --color-text: #f1f5f9;
+  --color-text-light: #94a3b8;
+  --color-bg: #0f0f1a;
+  --color-bg-soft: #1a1a2e;
+  --color-border: #2d2d44;
+
+   --color-bg-hover: #0096db; 
 }
 
 @theme {
@@ -13,30 +38,17 @@
 
 body {
   font-family: var(--font-poppins), sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* Foco visible para navegación por teclado */
 :focus-visible {
-  outline: 2px solid #6b46ff;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Clase utilitaria para elementos solo visibles para lectores de pantalla */
 .sr-only {
   position: absolute;
   width: 1px;

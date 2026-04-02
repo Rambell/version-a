@@ -41,7 +41,7 @@ export default function CourseCard({ course }: CourseCardProps) {
     const discountPercent = calcDiscount(originalPrice, discountPrice);
 
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col
+        <div className="bg-[var(--color-bg)] rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col
             hover:shadow-xl hover:-translate-y-1 hover:border-[#6b46ff]/20
             transition-all duration-300 ease-out group">
 
@@ -88,7 +88,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                 </h3>
 
                 <div className="flex items-center gap-1.5 text-[12px] text-[#5b6987] mb-3">
-                    <User size={11} className="text-[#6b46ff]" />
+                    <User size={11} className="text-bg-[var(--color-primary)]" />
                     <span>{instructor}</span>
                 </div>
 
@@ -111,7 +111,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                         <span className="text-[12px] text-gray-400 line-through">
                             {formatPrice(originalPrice)}
                         </span>
-                        <button className="bg-[#6b46ff] text-white text-[12px] px-3 py-1.5 rounded-lg hover:bg-[#9b82fe] transition-colors font-medium cursor-pointer">
+                        <button className="bg-[var(--color-primary)] text-white text-[12px] px-3 py-1.5 rounded-lg hover:opacity-70 transition flex-shrink-0 cursor-pointer ml-2 transition-colors font-medium cursor-pointer">
                             Ver curso
                         </button>
                     </div>
