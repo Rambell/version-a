@@ -29,8 +29,22 @@ body {
   }
 }
 
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+/* Foco visible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid #6b46ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Clase utilitaria para elementos solo visibles para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

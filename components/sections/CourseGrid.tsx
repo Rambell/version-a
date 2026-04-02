@@ -35,9 +35,9 @@ export default function CourseGrid({ selectedCategories }: CourseGridProps) {
         <div className="flex-1 min-w-0">
 
             <div className="flex items-center justify-between mb-5">
-                <p className="text-[#6b46ff] font-semibold text-[15px]">
+                <h2 className="text-[#6b46ff] font-semibold text-[15px]">
                     Cursos que te permitirán potenciar tu carrera.
-                </p>
+                </h2>
 
                 <div className="flex items-center gap-2">
                     <span className="text-[12px] text-gray-400 uppercase tracking-wide font-semibold">

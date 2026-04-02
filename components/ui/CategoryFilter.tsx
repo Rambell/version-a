@@ -68,7 +68,7 @@ export default function CategoryFilter({
     );
 
     return (
-        <aside className="w-[220px] flex-shrink-0">
+        <aside aria-label="Filtros de cursos" className="w-55 shrink-0">
 
       
             <ul className="mb-6 flex flex-col gap-2">

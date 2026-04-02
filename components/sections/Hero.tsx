@@ -49,6 +49,8 @@ export default function Hero() {
                     <div className="w-full max-w-xl flex items-center border-b-2 border-white/60 focus-within:border-white transition-colors">
                         <input
                             type="text"
+                            id="hero-search"   
+                            aria-label="Buscar cursos"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder=""
