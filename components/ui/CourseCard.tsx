@@ -1,5 +1,7 @@
     import { Course } from '@/types';
     import { Calendar, CircleAlert, Star, User } from 'lucide-react';
+    import { useCart } from '@/context/CartContext';
+    import { ShoppingCart, Check } from 'lucide-react';
 
     interface CourseCardProps {
         course: Course;
@@ -27,6 +29,8 @@
 
     export default function CourseCard({ course }: CourseCardProps) {
         const { title, instructor, startDate, originalPrice, discountPrice, modalidad, image, status } = course;
+        const { addToCart, items } = useCart();
+        const isInCart = items.some(i => i.id === course.id);
 
         const formattedDate = new Date(startDate + 'T12:00:00').toLocaleDateString('es-CL', {
             day: '2-digit', month: '2-digit', year: 'numeric',
@@ -90,8 +94,8 @@
                         <span className="ml-auto text-green-500 font-medium">• {status ?? 'En progreso'}</span>
                     </div>
 
-                    <div className="mt-auto pt-3 border-t border-[var(--color-border)]">
-                        <div className="flex items-center gap-2 mb-2">
+                     <div className="mt-auto pt-3 border-t border-[var(--color-border)] flex flex-col gap-2">
+                        <div className="flex items-center gap-2 mb-1">
                             <span className="text-[18px] font-bold text-[var(--color-text)]">
                                 {formatPrice(discountPrice)}
                             </span>
@@ -103,8 +107,21 @@
                             <span className="text-[12px] text-[var(--color-text-light)] line-through">
                                 {formatPrice(originalPrice)}
                             </span>
-                            <button className="bg-[var(--color-primary)] text-white text-[12px] px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity font-medium cursor-pointer">
+                        </div>
+                        <div className="flex gap-2">
+                            <button className="flex-1 py-2 rounded-lg text-[13px] font-semibold border border-[var(--color-primary)] text-[var(--color-text)] hover:bg-[var(--color-primary)] hover:text-white transition-all cursor-pointer">
                                 Ver curso
+                            </button>
+                            <button
+                                onClick={() => addToCart(course)}
+                                disabled={isInCart}
+                                className={`flex-1 py-2 rounded-lg text-[13px] font-semibold transition-all flex items-center justify-center gap-1 cursor-pointer
+                                    ${isInCart
+                                        ? 'bg-green-100 text-green-700 cursor-default'
+                                        : 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]'
+                                    }`}
+                            >
+                                {isInCart ? <><Check size={13} /> Agregado</> : <><ShoppingCart size={13} /> Carrito</>}
                             </button>
                         </div>
                     </div>

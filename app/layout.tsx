@@ -4,6 +4,8 @@ import './globals.css';
 import Footer from "@/components/layout/Footer";
 import type { Metadata } from 'next';
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { CartProvider } from '@/context/CartContext';
+import CartDrawer from '../components/ui/CardDrawer';
 
 
 export const metadata: Metadata = {
@@ -46,9 +48,12 @@ export default function RootLayout({
     <html lang="es" className={poppins.variable} suppressHydrationWarning>
       <body suppressHydrationWarning={true}>
         <ThemeProvider>
-        <Header />
-        {children}
-        <Footer />
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+            <CartDrawer />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>
