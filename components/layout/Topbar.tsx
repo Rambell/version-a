@@ -1,5 +1,6 @@
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import DarkMode from "../ui/DarkMode";
+import { useCart } from "@/context/CartContext";
 
 
 interface TopBarProps {
@@ -8,6 +9,8 @@ interface TopBarProps {
 }
 
 export default function TopBar({ mobileOpen, setMobileOpen }: TopBarProps) {
+  const { count, setIsOpen } = useCart();
+
   return (
     <div className="w-full bg-[var(--color-bg)] ">
       <div className="mx-auto flex items-center justify-between py-3 px-4 md:px-8 xl:px-[40px] max-w-[1440px]">
@@ -72,12 +75,17 @@ export default function TopBar({ mobileOpen, setMobileOpen }: TopBarProps) {
           </div>
 
         
-          <div className="relative cursor-pointer text-[var(--color-primary)]">
+          <div
+            className="relative cursor-pointer text-[var(--color-primary)]"
+            onClick={() => setIsOpen(true)}
+        >
             <ShoppingCart size={22} strokeWidth={2} />
-            <span className="absolute -top-2 -right-2 bg-[var(--color-bg)] text-[var(--color-primary)] text-[10px] font-bold w-4 h-4 flex items-center justify-center ">
-              0
-            </span>
-          </div>
+            {count > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[var(--color-primary)] text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                    {count}
+                </span>
+            )}
+        </div>
         </div>
 
       </div>
