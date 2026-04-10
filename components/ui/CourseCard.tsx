@@ -79,7 +79,7 @@
                 </div>
 
                 <div className="p-4 flex flex-col flex-1">
-                    <h3 className="font-semibold text-[var(--color-text)] text-[14px] leading-snug mb-2 line-clamp-3">
+                   <h3 className="font-semibold text-[var(--color-text)] text-[14px] leading-snug mb-2 line-clamp-3 min-h-[63px]">
                         {title}
                     </h3>
 
