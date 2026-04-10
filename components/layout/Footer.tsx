@@ -21,10 +21,10 @@ const mainColumns = [
     title: 'Escuelas',
     links: [
       'Escuela Salud Mental Adultos', 
-      'Escuela de Salud mental Infanto-Juvenil',
-      'Escuela de psicología organizacional', 
-      'Escuela sicosocial juridíca', 
-      'Escuela de educación neurodesarrollo'
+      'Escuela de Salud Mental Infanto-Juvenil',
+      'Escuela de Psicología Organizacional', 
+      'Escuela Psicosocial Jurídica', 
+      'Escuela de Educación Neurodesarrollo'
     ],
   }
 ];

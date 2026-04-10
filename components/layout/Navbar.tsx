@@ -17,11 +17,11 @@ const links = [
         badge: null, 
         hasArrow: true, 
         submenu: [
-            { label: 'Ebook Gratuitos', items: null }, 
+            { label: 'Ebooks Gratuitos', items: null }, 
             { label: 'Glosario', items: null },     
             { label: 'Investigaciones', items: null }, 
             { label: 'Noticias', items: null }, 
-            { label: 'Newesletter', items: null }, 
+            { label: 'Newsletter', items: null }, 
             { label: 'Podcast Adipados', items: null }
         ], 
     },
